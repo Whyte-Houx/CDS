@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/examples/next-app/src/middleware.ts"],"sourcesContent":["import { NextResponse, NextRequest } from \"next/server\";\n\nexport function middleware(req: NextRequest) {\n  const { pathname } = req.nextUrl;\n  if (pathname.startsWith(\"/settings\")) {\n    const canAccess = req.cookies.get(\"canAccessSettings\")?.value === \"true\";\n    if (!canAccess) {\n      const url = req.nextUrl.clone();\n      url.pathname = \"/\";\n      url.searchParams.set(\"settings\", \"denied\");\n      return NextResponse.redirect(url);\n    }\n  }\n  return NextResponse.next();\n}\n\nexport const config = {\n  matcher: [\"/settings/:path*\"],\n};"],"names":[],"mappings":";;;;;;AAAA;AAAA;;AAEO,SAAS,WAAW,GAAgB;IACzC,MAAM,EAAE,QAAQ,EAAE,GAAG,IAAI,OAAO;IAChC,IAAI,SAAS,UAAU,CAAC,cAAc;QACpC,MAAM,YAAY,IAAI,OAAO,CAAC,GAAG,CAAC,sBAAsB,UAAU;QAClE,IAAI,CAAC,WAAW;YACd,MAAM,MAAM,IAAI,OAAO,CAAC,KAAK;YAC7B,IAAI,QAAQ,GAAG;YACf,IAAI,YAAY,CAAC,GAAG,CAAC,YAAY;YACjC,OAAO,2NAAY,CAAC,QAAQ,CAAC;QAC/B;IACF;IACA,OAAO,2NAAY,CAAC,IAAI;AAC1B;AAEO,MAAM,SAAS;IACpB,SAAS;QAAC;KAAmB;AAC/B"}}]
+}

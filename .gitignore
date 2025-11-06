@@ -1,0 +1,23 @@
+# Node
+node_modules/
+*.log
+.DS_Store
+
+# Next.js / Turbopack / Vercel
+.next/
+.next2/
+.turbo/
+.vercel/
+
+# Build outputs
+dist/
+build/
+coverage/
+out/
+*.tsbuildinfo
+
+# Storybook
+storybook-static/
+
+# Environment files
+.env*
